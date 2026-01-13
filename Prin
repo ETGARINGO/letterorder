@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body { font-family: 'Times New Roman', serif; margin: 0; padding: 0; }
+  .a4 { width: 210mm; min-height: 297mm; padding: 20mm; margin: auto; box-sizing: border-box; }
+  .header { text-align: center; font-weight: bold; line-height: 1.2; margin-bottom: 25px; }
+  table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+  td { border: 1px solid black; padding: 4px; font-size: 10pt; }
+  .signatory-box { margin-top: 50px; display: flex; justify-content: space-between; }
+  @media print { .no-print { display: none; } }
+</style>
+</head>
+<body>
+<div class="a4">
+  <div class="header">Republic of the Philippines<br>NATIONAL POLICE COMMISSION<br>PHILIPPINE NATIONAL POLICE<br>POLICE REGIONAL OFFICE 9</div>
+  <div style="font-weight: bold;">LETTER ORDERS NUMBER 2025-1321<br>SUBJECT: RSSF (Charlie Company)</div>
+  <table id="printBody">
+    <thead><tr><th style="width: 70%; border:1px solid black">Rank/Name</th><th style="width: 30%; border:1px solid black">Office</th></tr></thead>
+    <tbody></tbody>
+  </table>
+  <div class="signatory-box">
+    <div>OFFICIAL:<br><br><br><strong>FLINT S DEPNAG</strong><br>Police Lieutenant Colonel</div>
+    <div style="text-align: left;"><br><br><strong>ELMER S LIM</strong><br>Police Colonel<br>Acting Chief of Regional Staff</div>
+  </div>
+</div>
+<script>
+  google.script.run.withSuccessHandler(data => {
+    const tbody = document.querySelector("#printBody tbody");
+    data.sort((a,b) => a[8].localeCompare(b[8])); // Sort by Office
+    data.forEach(r => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `<td>${r[4]} ${r[5]}, ${r[6]}</td><td>${r[8]}</td>`;
+      tbody.appendChild(tr);
+    });
+  }).getFullOrder("2025-1321");
+</script>
+</body>
+</html>

@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Embedded Drive Viewer</title>
+    <title>Google Drive - Stay on Page</title>
     <style>
-        /* Force the body to be exactly the size of the screen */
+        /* Force the browser to treat the body as a fixed container */
         html, body {
             margin: 0;
             padding: 0;
-            width: 100vw;
             height: 100vh;
-            overflow: hidden; /* Prevents the main page from scrolling */
-            background-color: #f1f3f4; /* Matches Google Drive's grey background */
+            width: 100vw;
+            overflow: hidden; /* Disables page-level scrolling */
+            background-color: #ffffff;
         }
 
-        /* The Iframe is 'Fixed' so it never moves or disappears */
-        .sticky-frame {
+        /* Fixed positioning ensures the iframe is 'glued' to the screen */
+        iframe {
             position: fixed;
             top: 0;
             left: 0;
@@ -30,9 +30,8 @@
 <body>
 
     <iframe 
-        class="sticky-frame"
-        src="https://drive.google.com/embeddedfolderview?id=1GEqYrywQqBp0q7qitm8s97A0jADGXwpz#grid"
-        allow="autoplay"
+        src="https://drive.google.com/embeddedfolderview?id=1GEqYrywQqBp0q7qitm8s97A0jADGXwpz#grid" 
+        allow="autoplay; fullscreen"
         sandbox="allow-forms allow-scripts allow-same-origin allow-popups">
         </iframe>
 

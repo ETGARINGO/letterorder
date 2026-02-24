@@ -2,34 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Drive - Full Screen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fixed Viewport Embed</title>
     <style>
-        /* Remove default browser padding and prevent scrolling on the body */
-        body, html {
+        /* Reset all spacing to 0 */
+        * {
             margin: 0;
             padding: 0;
-            height: 100%;
-            width: 100%;
-            overflow: hidden; /* Prevents double scrollbars */
+            box-sizing: border-box;
         }
 
-        /* Make the iframe fill the entire viewport */
-        iframe {
-            position: absolute;
+        html, body {
+            height: 100%;
+            width: 100%;
+            overflow: hidden; /* Disables the main page scrollbar */
+            background-color: #000; /* Optional: Black background for loading */
+        }
+
+        /* The "Sticky" Iframe Logic */
+        .fixed-frame {
+            position: fixed; /* Pins it relative to the screen */
             top: 0;
             left: 0;
+            bottom: 0;
+            right: 0;
             width: 100vw;
             height: 100vh;
             border: none;
+            z-index: 9999; /* Ensures it stays on top of everything else */
         }
     </style>
 </head>
 <body>
 
     <iframe 
-        src="https://drive.google.com/embeddedfolderview?id=1GEqYrywQqBp0q7qitm8s97A0jADGXwpz#grid" 
-        allow="autoplay">
+        class="fixed-frame"
+        src="https://drive.google.com/embeddedfolderview?id=1GEqYrywQqBp0q7qitm8s97A0jADGXwpz#grid"
+        allow="fullscreen">
     </iframe>
 
 </body>

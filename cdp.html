@@ -1,10 +1,35 @@
 <!DOCTYPE html>
-<html>
-<div class="drive-container">
-  <iframe 
-    src="https://drive.google.com/drive/folders/1GEqYrywQqBp0q7qitm8s97A0jADGXwpz?usp=drive_link">
-  </iframe>
-</div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded Google Drive Folder</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            width: 100%;
+            max-width: 900px;
+        }
+        iframe {
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            width: 100%;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Project Resources</h2>
+    <div class="container">
+        <iframe src="https://drive.google.com/embeddedfolderview?id=1GEqYrywQqBp0q7qitm8s97A0jADGXwpz#list"></iframe>
+    </div>
 
 </body>
 </html>

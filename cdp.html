@@ -3,43 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Fixed Viewport Embed</title>
+    <title>Embedded Drive Viewer</title>
     <style>
-        /* Reset all spacing to 0 */
-        * {
+        /* Force the body to be exactly the size of the screen */
+        html, body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            height: 100%;
-            width: 100%;
-            overflow: hidden; /* Disables the main page scrollbar */
-            background-color: #000; /* Optional: Black background for loading */
-        }
-
-        /* The "Sticky" Iframe Logic */
-        .fixed-frame {
-            position: fixed; /* Pins it relative to the screen */
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
             width: 100vw;
             height: 100vh;
+            overflow: hidden; /* Prevents the main page from scrolling */
+            background-color: #f1f3f4; /* Matches Google Drive's grey background */
+        }
+
+        /* The Iframe is 'Fixed' so it never moves or disappears */
+        .sticky-frame {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             border: none;
-            z-index: 9999; /* Ensures it stays on top of everything else */
+            z-index: 1;
         }
     </style>
 </head>
 <body>
 
     <iframe 
-        class="fixed-frame"
+        class="sticky-frame"
         src="https://drive.google.com/embeddedfolderview?id=1GEqYrywQqBp0q7qitm8s97A0jADGXwpz#grid"
-        allow="fullscreen">
-    </iframe>
+        allow="autoplay"
+        sandbox="allow-forms allow-scripts allow-same-origin allow-popups">
+        </iframe>
 
 </body>
 </html>

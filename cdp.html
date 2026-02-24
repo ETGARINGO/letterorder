@@ -3,27 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Google Drive - Stay on Page</title>
+    <title>Cloud Drive - Full View</title>
     <style>
-        /* Ensures the container fills the browser window perfectly */
+        /* Eliminate all whitespace and lock the viewport */
         html, body {
             margin: 0;
             padding: 0;
-            height: 100vh;
-            width: 100vw;
-            overflow: hidden; 
-            background-color: #ffffff;
+            height: 100%;
+            width: 100%;
+            overflow: hidden; /* Disables page scrolling */
+            background-color: #f1f3f4; /* Google Drive-like background gray */
         }
 
-        /* Fixed positioning prevents the iframe from being moved or scrolled away */
+        /* The 'Pinning' Logic */
         iframe {
             position: fixed;
             top: 0;
             left: 0;
+            bottom: 0;
+            right: 0;
             width: 100%;
             height: 100%;
             border: none;
-            z-index: 999;
+            z-index: 1;
         }
     </style>
 </head>
@@ -32,6 +34,7 @@
     <iframe 
         src="https://drive.google.com/embeddedfolderview?id=1GEqYrywQqBp0q7qitm8s97A0jADGXwpz#grid" 
         allow="autoplay; fullscreen"
+        loading="lazy"
         sandbox="allow-forms allow-scripts allow-same-origin allow-popups">
     </iframe>
 
